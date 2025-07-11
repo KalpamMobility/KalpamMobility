@@ -252,6 +252,17 @@ a {
       justify-content: center;
     }
   }
+    /* Responsive */
+  @media (max-width: 440px) {
+  .hero-buttons{
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-primary{
+    text-align: center;
+    justify-content: center; /* Add this line */
+  }
+  }
 
   /* About Us Section */
 .about-us {
