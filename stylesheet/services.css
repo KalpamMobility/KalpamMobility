@@ -1,0 +1,651 @@
+/* styles.css */
+:root {
+    --white: #ffffff;
+    --orange: #FF6B35;  /* Vibrant orange for CTAs */
+    --blue: #004E89;    /* Trustworthy blue */
+    --light-blue: #E6F2FF; /* Subtle background */
+}
+:root {
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
+body {
+  font-family: var(--body-font);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* Navbar Base Styles */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Desktop Menu */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--orange);
+}
+
+/* CTA Button */
+.cta-button {
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.cta-button, .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fa-phone {
+  margin-right: 0.5rem;
+}
+.cta-button:hover {
+    background: #E05A2B; /* Darker orange on hover */
+}
+
+/* Mobile Menu Toggle (Hidden by Default) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: var(--blue);
+    transition: all 0.3s;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem 0;
+        transition: left 0.3s;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-container {
+      padding: 0.5rem 1rem;
+    }
+    
+    .logo span {
+      display: none; /* Hide text on small screens */
+    }
+  }
+
+/* Services Page Specific Styles */
+.services-hero {
+    background: linear-gradient(rgba(0, 78, 137, 0.85), rgba(0, 78, 137, 0.9)), 
+                url('../images/services-hero-bg.jpg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.services-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.services-hero h1 span {
+    color: var(--orange);
+}
+
+.services-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+      padding: 3rem 1rem;
+    }
+    
+    .services-hero h1 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    
+    .services-hero p {
+      font-size: 1.1rem;
+    }
+  }
+  
+
+/* Service Tabs */
+.service-tabs {
+    background: var(--light-blue);
+    padding: 1rem 0;
+    top: 80px; /* Below navbar */
+    z-index: 100;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.tab-buttons::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--blue);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--orange);
+    color: white;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    padding: 4rem 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.service-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.service-intro h2 {
+    color: var(--blue);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.service-intro p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Service Grid */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+@media (min-width: 576px) {
+    .service-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+.service-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintains aspect ratio while filling container */
+    object-position: center; /* Focus on center of image */
+    transition: transform 0.5s ease;
+  }
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 78, 137, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.service-card:hover .overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    color: white;
+    background: var(--orange);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.service-card h3 {
+    color: var(--blue);
+    padding: 1.5rem 1.5rem 0;
+    font-size: 1.3rem;
+}
+
+.service-features {
+    padding: 1rem 1.5rem 1.5rem;
+    list-style: none;
+}
+
+.service-features li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.service-features i {
+    color: var(--orange);
+    margin-right: 0.5rem;
+}
+
+/* Technology Section */
+.technology {
+    background: var(--light-blue);
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.technology h2 {
+    color: var(--blue);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+}
+
+.technology h2 span {
+    color: var(--orange);
+}
+
+.tech-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.step h3 {
+    color: var(--blue);
+    margin: 1rem 0;
+}
+
+.step p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Insurance Section */
+.insurance {
+    padding: 5rem 1rem;
+    background: white;
+}
+
+.insurance .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.insurance h2 {
+    color: var(--blue);
+    margin-bottom: 1rem;
+}
+
+.insurance p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.insurance ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.insurance li {
+    margin-bottom: 0.8rem;
+    color: var(--blue);
+}
+
+.insurance i {
+    color: var(--orange);
+    margin-right: 0.5rem;
+}
+
+.insurance-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.insurance-logos img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.insurance-logos img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .insurance .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .insurance ul {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .service-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tab-buttons {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step-number {
+    background: var(--orange);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.cta-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.our-approach {
+    background: var(--light-blue);
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.our-approach h2 {
+    color: var(--blue);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+}
+
+.our-approach h2 span {
+    color: var(--orange);
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.approach-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.approach-card:hover {
+    transform: translateY(-10px);
+}
+
+.approach-card i {
+    font-size: 2.5rem;
+    color: var(--orange);
+    margin-bottom: 1rem;
+}
+
+.approach-card h3 {
+    color: var(--blue);
+    margin: 1rem 0;
+}
+
+.approach-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Adjust service grid for specialized services */
+#specialized .service-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .our-approach {
+        padding: 3rem 1rem;
+    }
+    
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CTA Section - Responsive */
+.service-cta {
+    background: var(--blue);
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    color: white;
+  }
+  
+  .service-cta .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-cta h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-cta h3 span { color: var(--orange); }
+  
+  .cta-options {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 2rem);
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1rem, 2vw, 2rem);
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    justify-content: center;
+  }
+  
+  .btn-primary:hover {
+    background: #e05a2b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary i { font-size: 1.1rem; }
+  
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    .cta-options { flex-direction: column; }
+    .btn-primary { width: 100%; max-width: 280px; }
+  }
