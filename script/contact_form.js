@@ -6,7 +6,7 @@
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 
-                emailjs.sendForm('service_lrpyzj3', 'template_x0zz9qh', this)
+                emailjs.sendForm('service_mhegrho', 'template_8wi6etb', this)
                     .then(() => {
                         document.getElementById('contactForm').reset();
                         document.getElementById('formSuccess').style.display = 'block';
